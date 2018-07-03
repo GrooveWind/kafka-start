@@ -5,7 +5,6 @@ import org.apache.kafka.clients.producer.*;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Properties;
 
@@ -28,9 +27,9 @@ public class ProducerTest {
 
         Producer<String, String> producer = null;
         try {
-            producer = new KafkaProducer<String, String>(props);
+            producer = new KafkaProducer<>(props);
             for (int i = 0; i < 10; i++) {
-                producer.send(new ProducerRecord<String, String>("helloKafka", "hello" + i, i * 100 + ""), new Callback(){
+                producer.send(new ProducerRecord<>("helloKafka", "hello" + i, i * 100 + ""), new Callback(){
                     public void onCompletion(RecordMetadata recordMetadata, Exception e) {
                         if (e != null) {
                             System.err.println(e.getMessage());
@@ -64,7 +63,7 @@ public class ProducerTest {
 
         Producer<String, OrderInfo> producer = null;
         try {
-            producer = new KafkaProducer<String, OrderInfo>(props);
+            producer = new KafkaProducer<>(props);
 
             for (int i = 0; i < 10; i++) {
                 OrderInfo order = new OrderInfo();
@@ -72,7 +71,7 @@ public class ProducerTest {
                 order.setOrderId("reg-order-" + i);
                 order.setVersion(0);
 
-                producer.send(new ProducerRecord<String, OrderInfo>("orderSet", order.getOrderId(), order), new Callback(){
+                producer.send(new ProducerRecord<>("orderSet", order.getOrderId(), order), new Callback(){
                     public void onCompletion(RecordMetadata recordMetadata, Exception e) {
                         if (e != null) {
                             System.err.println(e.getMessage());
@@ -111,7 +110,7 @@ public class ProducerTest {
 
         Producer<String, OrderInfo> producer = null;
         try {
-            producer = new KafkaProducer<String, OrderInfo>(props);
+            producer = new KafkaProducer<>(props);
 
             for (int i = 0; i < 10; i++) {
                 OrderInfo order = new OrderInfo();
@@ -119,7 +118,7 @@ public class ProducerTest {
                 order.setOrderId("TxOrderNum-" + i);
                 order.setVersion(0);
 
-                producer.send(new ProducerRecord<String, OrderInfo>("helloKafka", order.getOrderId(), order), new Callback(){
+                producer.send(new ProducerRecord<>("helloKafka", order.getOrderId(), order), new Callback(){
                     public void onCompletion(RecordMetadata recordMetadata, Exception e) {
                         if (e != null) {
                             System.err.println(e.getMessage());
