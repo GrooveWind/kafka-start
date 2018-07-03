@@ -1,6 +1,6 @@
-package me.wind.groove.kafka.producer.test;
+package me.wind.groove.kafka.test;
 
-import me.wind.groove.kafka.entity.OrderInfo;
+import me.wind.groove.kafka.common.entity.OrderInfo;
 import org.apache.kafka.clients.producer.*;
 import org.junit.Test;
 
@@ -70,8 +70,6 @@ public class ProducerTest {
                 OrderInfo order = new OrderInfo();
                 order.setId(30000l + i);
                 order.setOrderId("reg-order-" + i);
-                order.setCreateTime(new Date());
-                order.setModifyTime(new Date());
                 order.setVersion(0);
 
                 producer.send(new ProducerRecord<String, OrderInfo>("orderSet", order.getOrderId(), order), new Callback(){
@@ -119,8 +117,6 @@ public class ProducerTest {
                 OrderInfo order = new OrderInfo();
                 order.setId(30000l + i);
                 order.setOrderId("TxOrderNum-" + i);
-                order.setCreateTime(new Date());
-                order.setModifyTime(new Date());
                 order.setVersion(0);
 
                 producer.send(new ProducerRecord<String, OrderInfo>("helloKafka", order.getOrderId(), order), new Callback(){

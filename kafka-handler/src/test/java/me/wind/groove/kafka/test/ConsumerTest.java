@@ -1,13 +1,13 @@
-package me.wind.groove.kafka.producer.test;
+package me.wind.groove.kafka.test;
 
-import me.wind.groove.kafka.entity.OrderInfo;
+import me.wind.groove.kafka.common.entity.OrderInfo;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
-import org.apache.kafka.clients.producer.*;
 import org.junit.Test;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Properties;
 
 public class ConsumerTest {
 

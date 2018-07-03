@@ -1,6 +1,6 @@
 package me.wind.groove.kafka.producer.interceptor;
 
-import me.wind.groove.kafka.entity.OrderInfo;
+import me.wind.groove.kafka.common.entity.OrderInfo;
 import org.apache.kafka.clients.producer.ProducerInterceptor;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.clients.producer.RecordMetadata;
